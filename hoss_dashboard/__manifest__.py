@@ -13,7 +13,7 @@ Transforms the standard Odoo home menu into a beautiful, modern, glassmorphism-i
     'category': 'Theme/Backend',
     'version': '18.0.1.0.0',
     'license': 'OPL-1',
-    'price': 49.00,
+    'price': 39.00,
     'currency': 'USD',
     'images': ['static/description/banner.png'],
     'depends': ['base', 'web'],
