@@ -16,7 +16,7 @@ Key Features:
 - Supports both personal user customization and locked global corporate themes via Odoo Access Rights.
 - Fully compatible with Odoo Community and Enterprise.
     """,
-    "author": "Hoss",
+    "author": "HosamAE",
     "website": "https://www.linkedin.com/in/hossameldeen-eissa/",
     "support": "hossama.eissa@gmail.com",
     "category": "Theme/Backend",
