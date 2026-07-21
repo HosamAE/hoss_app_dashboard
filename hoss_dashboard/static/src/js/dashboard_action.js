@@ -142,7 +142,7 @@ export class hossDashboard extends Component {
         document.body.style.setProperty("--hoss-bg-style", bgStyle);
         document.body.style.setProperty("--hoss-bg-saturation", `${config.background_saturation !== undefined ? config.background_saturation : 100}%`);
         
-        const navbarTextColor = config.clock_text_color || "#ffffff";
+        const navbarTextColor = config.clock_text_color || "#000000";
         document.body.style.setProperty("--hoss-navbar-text-color", navbarTextColor);
         
         container.style.setProperty("--hoss-icon-size", `${config.icon_size || 72}px`);
@@ -546,7 +546,7 @@ export class HossClockSystray extends Component {
         if (!cachedConfig) return '';
         const c = cachedConfig;
 
-        const txtRgb = this._hexToRgb(c.clock_text_color || '#ffffff');
+        const txtRgb = this._hexToRgb(c.clock_text_color || '#000000');
         const bgRgb  = this._hexToRgb(c.clock_bg_color || '#ffffff');
         const bdrRgb = this._hexToRgb(c.clock_border_color || '#ffffff');
 
@@ -616,7 +616,7 @@ registry.category("actions").add("menu", hossDashboard, { force: true });
 
 const originalRegistryAdd = Registry.prototype.add;
 Registry.prototype.add = function (key, value, options = {}) {
-    if (this.name === "actions" && key === "menu") {
+    if ((this.name === "actions" || this === registry.category("actions")) && key === "menu") {
         options.force = true;
         value = hossDashboard;
     }

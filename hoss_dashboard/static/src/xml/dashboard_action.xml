@@ -173,8 +173,8 @@
                                 <label>Clock Text Color</label>
                                 <div class="color_picker_row">
                                     <div class="color_picker_wrapper">
-                                        <input type="color" t-att-value="state.tempConfig.clock_text_color || '#ffffff'" t-on-input="(ev) => this.changeConfig('clock_text_color', ev.target.value)"/>
-                                        <input class="color_code_text" type="text" t-att-value="state.tempConfig.clock_text_color || '#ffffff'" t-on-input="(ev) => this.changeConfig('clock_text_color', ev.target.value)"/>
+                                        <input type="color" t-att-value="state.tempConfig.clock_text_color || '#000000'" t-on-input="(ev) => this.changeConfig('clock_text_color', ev.target.value)"/>
+                                        <input class="color_code_text" type="text" t-att-value="state.tempConfig.clock_text_color || '#000000'" t-on-input="(ev) => this.changeConfig('clock_text_color', ev.target.value)"/>
                                     </div>
                                 </div>
                             </div>
