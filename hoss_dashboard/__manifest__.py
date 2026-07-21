@@ -1,10 +1,7 @@
 # -*- coding: utf-8 -*-
 {
     "name": "Hoss App Dashboard",
-    "summary": (
-        "Premium Glassmorphic Dashboard & Customizer "
-        "for Odoo 17, 18, and 19"
-    ),
+    "summary": "Premium Glassmorphic Dashboard & Customizer for Odoo 18",
     "description": """
 Hoss Premium Dashboard & Live Customizer
 =========================================
