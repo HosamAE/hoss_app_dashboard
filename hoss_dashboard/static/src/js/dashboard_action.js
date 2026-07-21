@@ -616,7 +616,7 @@ registry.category("actions").add("menu", hossDashboard, { force: true });
 
 const originalRegistryAdd = Registry.prototype.add;
 Registry.prototype.add = function (key, value, options = {}) {
-    if (this.name === "actions" && key === "menu") {
+    if ((this.name === "actions" || this === registry.category("actions")) && key === "menu") {
         options.force = true;
         value = hossDashboard;
     }
