@@ -74,6 +74,9 @@ export class hossDashboard extends Component {
             document.addEventListener("hoss:toggle-customizer", this.onToggleCustomizerEvent);
             document.body.classList.add("hoss_dashboard_active");
             document.body.classList.add(`hoss_bg_behavior_${this.state.config.background_behavior || 'fixed'}`);
+            if (this.state.customizerOpen) {
+                document.body.classList.add("hoss_customizer_open");
+            }
             this.env.bus.trigger("HOME-MENU:TOGGLED");
             this.applyStyles(this.state.config);
 
@@ -91,10 +94,12 @@ export class hossDashboard extends Component {
             document.removeEventListener("keydown", this.onGlobalKeydown);
             document.removeEventListener("hoss:toggle-customizer", this.onToggleCustomizerEvent);
             document.body.classList.remove("hoss_dashboard_active");
+            document.body.classList.remove("hoss_customizer_open");
             document.body.classList.remove("hoss_bg_behavior_fixed");
             document.body.classList.remove("hoss_bg_behavior_scroll");
             document.body.style.removeProperty("--hoss-bg-style");
             document.body.style.removeProperty("--hoss-bg-saturation");
+            document.body.style.removeProperty("--hoss-navbar-text-color");
             this.env.bus.trigger("HOME-MENU:TOGGLED");
 
             clearTimeout(this._clockSyncTimeout);
@@ -108,6 +113,11 @@ export class hossDashboard extends Component {
             const activeConfig = this.state.customizerOpen ? this.state.tempConfig : this.state.config;
             document.body.classList.remove("hoss_bg_behavior_fixed", "hoss_bg_behavior_scroll");
             document.body.classList.add(`hoss_bg_behavior_${activeConfig.background_behavior || 'fixed'}`);
+            if (this.state.customizerOpen) {
+                document.body.classList.add("hoss_customizer_open");
+            } else {
+                document.body.classList.remove("hoss_customizer_open");
+            }
             this.applyStyles(activeConfig);
         });
     }
@@ -131,6 +141,10 @@ export class hossDashboard extends Component {
         
         document.body.style.setProperty("--hoss-bg-style", bgStyle);
         document.body.style.setProperty("--hoss-bg-saturation", `${config.background_saturation !== undefined ? config.background_saturation : 100}%`);
+        
+        const navbarTextColor = config.clock_text_color || "#ffffff";
+        document.body.style.setProperty("--hoss-navbar-text-color", navbarTextColor);
+        
         container.style.setProperty("--hoss-icon-size", `${config.icon_size || 72}px`);
         
         let shapeRadius = "18px";

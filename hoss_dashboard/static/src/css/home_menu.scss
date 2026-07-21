@@ -21,6 +21,12 @@
 
 /* Overlay and blend top navbar with the background when Dashboard is active */
 body.hoss_dashboard_active {
+  background: transparent !important;
+  
+  .o_web_client {
+    background: transparent !important;
+  }
+
   .o_main_navbar,
   .o_navbar {
     position: absolute !important;
@@ -31,13 +37,20 @@ body.hoss_dashboard_active {
     border: none !important;
     box-shadow: none !important;
     z-index: 1000 !important;
+    color: var(--hoss-navbar-text-color, #ffffff) !important;
 
-    .o_menu_brand,
-    .o_menu_sections,
-    .o_menu_toggle,
-    .o_navbar_apps_menu,
-    .o_menu_apps {
+    // Isolate active styling to direct children of Odoo top navbar across v17/18/19
+    > :not(.o_menu_systray):not(.o_navbar_systray):not(.o_systray):not(.hoss_nav_clock) {
       display: none !important;
+    }
+
+    // Force inherited custom text color for native navbar systray elements
+    a, button, span, i, .btn {
+      color: var(--hoss-navbar-text-color, #ffffff) !important;
+      
+      &:hover {
+        background: rgba(255, 255, 255, 0.15) !important;
+      }
     }
   }
 
@@ -487,18 +500,26 @@ body.hoss_dashboard_active.hoss_bg_behavior_fixed {
   }
 }
 
+/* Stacking context adjustments for customizer drawer open state */
+body.hoss_customizer_open {
+  .o_main_navbar,
+  .o_navbar {
+    z-index: 98 !important;
+  }
+}
+
 /* Side Customizer Drawer */
 .hoss_customizer_drawer {
   position: fixed;
   right: 0;
-  top: 46px;
+  top: 0;
   bottom: 0;
   width: 380px;
   background: rgba(255, 255, 255, 0.85);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border-left: 1px solid rgba(255, 255, 255, 0.4);
-  z-index: 1000;
+  z-index: 1002;
   box-shadow: -10px 0 35px rgba(0, 0, 0, 0.08);
   transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   transform: translateX(100%);
@@ -611,7 +632,7 @@ body.hoss_dashboard_active.hoss_bg_behavior_fixed {
 .hoss_form_group {
   margin-bottom: 18px;
 
-  label {
+  label:not(.cursor-pointer):not(.form-check-label) {
     display: flex;
     justify-content: space-between;
     font-size: 0.9rem;
@@ -622,6 +643,25 @@ body.hoss_dashboard_active.hoss_bg_behavior_fixed {
     span.val_label {
       color: #6366f1;
       font-weight: 700;
+    }
+  }
+
+  .hoss_input,
+  .hoss_select {
+    width: 100%;
+    padding: 8px 12px;
+    border: 1px solid #cbd5e1 !important;
+    border-radius: 10px !important;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #334155;
+    background: rgba(255, 255, 255, 0.9) !important;
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+
+    &:focus {
+      border-color: #6366f1 !important;
+      box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15) !important;
     }
   }
 
@@ -661,6 +701,7 @@ body.hoss_dashboard_active.hoss_bg_behavior_fixed {
 
     input[type='range'] {
       -webkit-appearance: none;
+      appearance: none;
       width: 100%;
       height: 6px;
       border-radius: 3px;
@@ -670,6 +711,7 @@ body.hoss_dashboard_active.hoss_bg_behavior_fixed {
 
       &::-webkit-slider-thumb {
         -webkit-appearance: none;
+        appearance: none;
         width: 18px;
         height: 18px;
         border-radius: 50%;
@@ -703,6 +745,7 @@ body.hoss_dashboard_active.hoss_bg_behavior_fixed {
 
       input[type='color'] {
         -webkit-appearance: none;
+        appearance: none;
         border: none;
         width: 28px;
         height: 28px;
@@ -768,8 +811,8 @@ body.hoss_dashboard_active.hoss_bg_behavior_fixed {
     padding: 15px 10px !important;
     border-radius: 20px !important;
   }
-  .hoss_dashboard_container {
-    padding: 40px 20px;
+  .hoss_dashboard_content_wrapper {
+    padding: 0 20px 20px 20px !important;
   }
   .hoss_customizer_drawer {
     width: 100%;
