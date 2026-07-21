@@ -69,7 +69,7 @@ class HossDashboardConfig(models.Model):
     lock_app_positions = fields.Boolean(string="Lock App Positions", default=False)
     top_padding = fields.Integer(string="Top Padding (px)", default=106)
     show_clock = fields.Boolean(string="Show Clock in Navbar", default=True)
-    clock_text_color = fields.Char(string='Clock Text Color', default='#ffffff')
+    clock_text_color = fields.Char(string='Clock Text Color', default='#000000')
     clock_bg_color = fields.Char(string='Clock BG Color', default='#ffffff')
     clock_border_color = fields.Char(string='Clock Border Color', default='#ffffff')
     clock_bg_opacity = fields.Integer(string='Clock BG Opacity (%)', default=13)
@@ -168,7 +168,7 @@ class HossDashboardConfig(models.Model):
             "lock_app_positions": config.lock_app_positions,
             "top_padding": config.top_padding,
             "show_clock": config.show_clock,
-            "clock_text_color": config.clock_text_color or '#ffffff',
+            "clock_text_color": config.clock_text_color or '#000000',
             "clock_bg_color": config.clock_bg_color or '#ffffff',
             "clock_border_color": config.clock_border_color or '#ffffff',
             "clock_bg_opacity": config.clock_bg_opacity if config.clock_bg_opacity is not None else 13,
@@ -190,8 +190,8 @@ class HossDashboardConfig(models.Model):
                 "name": "Dashboard Themes & Systems",
                 "type": "ir.actions.act_window",
                 "res_model": "hoss.dashboard.config",
-                "view_mode": "tree,form",
-                "views": [[False, "tree"], [False, "form"]],
+                "view_mode": "list,form",
+                "views": [[False, "list"], [False, "form"]],
                 "target": "current",
             }
         else:

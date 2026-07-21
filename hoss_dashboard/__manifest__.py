@@ -1,16 +1,16 @@
 # -*- coding: utf-8 -*-
 {
-    "name": "Hoss App Dashboard",
-    "summary": "Premium Glassmorphic Dashboard & Customizer for Odoo 17",
+    "name": "Hoss Premium Home Menu Customizer",
+    "summary": "Premium Glassmorphic Home Menu Theme & Customizer for Odoo 17",
     "description": """
-Hoss Premium Dashboard & Live Customizer
-=========================================
+Hoss Premium Home Menu Theme & Live Customizer
+==============================================
 Transforms the standard Odoo home menu into a beautiful, modern,
-glassmorphism-inspired dashboard with live visual overrides.
+glassmorphism-inspired interface with live visual overrides.
     """,
     "author": "Hoss",
-    "website": "https://hoss.dev",
-    "support": "support@hoss.dev",
+    "website": "https://www.linkedin.com/in/hossameldeen-eissa/",
+    "support": "hossama.eissa@gmail.com",
     "category": "Theme/Backend",
     "version": "17.0.1.0.0",
     "license": "OPL-1",
