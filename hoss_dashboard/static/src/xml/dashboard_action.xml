@@ -46,7 +46,7 @@
                         <h4>System Theme</h4>
                         <div class="hoss_form_group">
                             <label>Select Configuration</label>
-                            <select class="w-100 p-2 border rounded" t-on-change="(ev) => this.onSystemChange(ev)" style="background: rgba(255, 255, 255, 0.9) !important; border: 1px solid #ddd !important; font-size: 0.85rem; font-weight: 600; color: #334155;">
+                            <select class="hoss_select" t-on-change="(ev) => this.onSystemChange(ev)">
                                 <option value="custom" t-att-selected="state.tempConfig.is_custom">My Custom Design</option>
                                 <t t-foreach="state.tempConfig.systems || []" t-as="sys" t-key="sys.id">
                                     <option t-att-value="sys.id" t-att-selected="!state.tempConfig.is_custom &amp;&amp; state.tempConfig.id === sys.id" t-esc="sys.name"/>
@@ -103,7 +103,7 @@
                                 <div class="preset_item" t-on-click="() => this.changeConfig('background_image_url_custom', '/hoss_dashboard/static/src/img/wallpaper_corporate.png')" t-attf-style="cursor: pointer; border-radius: 8px; overflow: hidden; border: 2px solid #ddd; height: 50px; background: url('/hoss_dashboard/static/src/img/wallpaper_corporate.png') center/cover no-repeat; {{state.tempConfig.background_image_url_custom === '/hoss_dashboard/static/src/img/wallpaper_corporate.png' ? 'border-color: #3b82f6 !important; box-shadow: 0 0 8px rgba(59, 130, 246, 0.5) !important;' : ''}}" title="Corporate Sleek Theme"/>
                             </div>
                             <label>Custom Image URL</label>
-                            <input class="w-100 p-2 border rounded" type="text" t-att-value="state.tempConfig.background_image_url_custom || ''" t-on-input="(ev) => this.changeConfig('background_image_url_custom', ev.target.value)" placeholder="e.g. https://images.unsplash.com/..." style="background: rgba(255, 255, 255, 0.9) !important; border: 1px solid #ddd !important; font-size: 0.85rem;"/>
+                            <input class="hoss_input" type="text" t-att-value="state.tempConfig.background_image_url_custom || ''" t-on-input="(ev) => this.changeConfig('background_image_url_custom', ev.target.value)" placeholder="e.g. https://images.unsplash.com/..."/>
                         </div>
                         <div class="hoss_form_group">
                             <label>Saturation <span class="val_label" t-esc="state.tempConfig.background_saturation + '%'"/></label>
@@ -126,11 +126,11 @@
                         <h4>Greeting Message</h4>
                         <div class="hoss_form_group">
                             <label>Greeting Title</label>
-                            <input class="w-100 p-2 border rounded" type="text" t-att-value="state.tempConfig.greeting_title || ''" t-on-input="(ev) => this.changeConfig('greeting_title', ev.target.value)" placeholder="e.g. Welcome back!" style="background: rgba(255, 255, 255, 0.9) !important; border: 1px solid #ddd !important; font-size: 0.85rem;"/>
+                            <input class="hoss_input" type="text" t-att-value="state.tempConfig.greeting_title || ''" t-on-input="(ev) => this.changeConfig('greeting_title', ev.target.value)" placeholder="e.g. Welcome back!"/>
                         </div>
                         <div class="hoss_form_group">
                             <label>Greeting Subtitle</label>
-                            <input class="w-100 p-2 border rounded" type="text" t-att-value="state.tempConfig.greeting_subtitle || ''" t-on-input="(ev) => this.changeConfig('greeting_subtitle', ev.target.value)" placeholder="e.g. What would you like to do today?" style="background: rgba(255, 255, 255, 0.9) !important; border: 1px solid #ddd !important; font-size: 0.85rem;"/>
+                            <input class="hoss_input" type="text" t-att-value="state.tempConfig.greeting_subtitle || ''" t-on-input="(ev) => this.changeConfig('greeting_subtitle', ev.target.value)" placeholder="e.g. What would you like to do today?"/>
                         </div>
                         <div class="hoss_form_group">
                             <label>Greeting Alignment</label>
