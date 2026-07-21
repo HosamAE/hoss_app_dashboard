@@ -33,6 +33,9 @@ glassmorphism-inspired dashboard with live visual overrides.
             "hoss_dashboard/static/src/js/dashboard_action.js",
             "hoss_dashboard/static/src/xml/dashboard_action.xml",
         ],
+        "web.assets_web_dark": [
+            "hoss_dashboard/static/src/css/home_menu_dark.scss",
+        ],
     },
     "installable": True,
     "application": False,
