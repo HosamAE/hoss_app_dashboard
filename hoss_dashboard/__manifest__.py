@@ -3,10 +3,18 @@
     "name": "Hoss Premium Home Menu Customizer",
     "summary": "Premium Glassmorphic Home Menu Theme & Customizer for Odoo 17",
     "description": """
-Hoss Premium Home Menu Theme & Live Customizer
-==============================================
-Transforms the standard Odoo home menu into a beautiful, modern,
-glassmorphism-inspired interface with live visual overrides.
+Hoss Premium Home Menu Customizer
+=================================
+Re-imagine your Odoo landing page. The Hoss Premium Home Menu Customizer transforms the default, rigid, one-size-fits-all Odoo welcome screen into a beautiful, personalized, high-performance visual canvas.
+
+Key Features:
+- Real-time visual customizer accessible directly via a systray brush icon (no page reload).
+- Fully configurable backgrounds (solid, gradient, wallpaper presets, or custom images).
+- Glassmorphic card customizer (opacity, border styling, radius, and shadows).
+- Adjustable Odoo app icon layouts, shapes (circular, rounded, square), and sizes.
+- Custom greeting messages (title, subtitle, alignment) and live systray clock.
+- Supports both personal user customization and locked global corporate themes via Odoo Access Rights.
+- Fully compatible with Odoo Community and Enterprise.
     """,
     "author": "Hoss",
     "website": "https://www.linkedin.com/in/hossameldeen-eissa/",
