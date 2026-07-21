@@ -33,18 +33,24 @@ body.hoss_dashboard_active {
     top: 0;
     left: 0;
     right: 0;
-    background: transparent !important;
-    border: none !important;
-    box-shadow: none !important;
+    background: rgba(255, 255, 255, 0.08) !important;
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15) !important;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.02) !important;
     z-index: 1000 !important;
     color: var(--hoss-navbar-text-color, #ffffff) !important;
 
-    // Isolate active styling to direct children of Odoo top navbar across v17/18/19
-    > :not(.o_menu_systray):not(.o_navbar_systray):not(.o_systray):not(.hoss_nav_clock) {
+    // Hide breadcrumbs, active app brand, and app menus on the main dashboard
+    .o_menu_brand,
+    .o_menu_sections,
+    .o_menu_toggle,
+    .o_navbar_apps_menu,
+    .o_menu_apps {
       display: none !important;
     }
 
-    // Force inherited custom text color for native navbar systray elements
+    // Force inherited custom text color for native navbar elements
     a, button, span, i, .btn {
       color: var(--hoss-navbar-text-color, #ffffff) !important;
       
@@ -485,18 +491,24 @@ body.hoss_dashboard_active.hoss_bg_behavior_fixed {
 
 /* Navbar Customizer Button styling */
 .hoss_nav_customizer_btn {
-  color: currentColor !important;
-  opacity: 0.85;
-  transition:
-    opacity 0.2s,
-    transform 0.2s;
+  background: rgba(79, 70, 229, 0.15) !important;
+  border: 1px solid rgba(79, 70, 229, 0.3) !important;
+  color: #4f46e5 !important;
+  border-radius: 50% !important;
+  width: 34px;
+  height: 34px;
   display: flex;
   align-items: center;
   justify-content: center;
+  box-shadow: 0 4px 10px rgba(79, 70, 229, 0.1);
+  transition: all 0.25s ease !important;
+  cursor: pointer;
 
   &:hover {
-    opacity: 1;
-    transform: scale(1.08);
+    background: #4f46e5 !important;
+    color: #ffffff !important;
+    transform: scale(1.08) rotate(15deg);
+    box-shadow: 0 6px 16px rgba(79, 70, 229, 0.25);
   }
 }
 
